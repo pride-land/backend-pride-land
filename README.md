@@ -11,6 +11,10 @@ Our Back-End Tech stack: <br>
 • Django Rest
 ``` 
 
+### Setting up Development
+
+Here's a quick guide and run down on how to setup environment and start developing the project.
+
 #### Initial Setup:
 
 ```
@@ -32,4 +36,16 @@ $ python3 manage.py runserver
 ```
 $ pip install djangorestframework
 $ pip install django-cors-headers
+$ pip install psycopg2-binary
 ```
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'prideland',
+        'USER': 'postgres',
+        'PASSWORD': 'your_password',
+        'HOST': 'your_localhost',
+        'PORT': 'your_localport',
+    }
+}
