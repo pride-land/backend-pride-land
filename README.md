@@ -44,7 +44,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'prideland',
         'USER': 'postgres',
-        'PASSWORD': 'your_password',
+        'PASSWORD': 'your_password', 
         'HOST': 'your_localhost',
         'PORT': 'your_localport',
     }
