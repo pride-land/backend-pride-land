@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import Hero
+from .models import Admin
 # Register your models here.
-admin.site.register(Hero)
+
+admin.site.register(Admin)

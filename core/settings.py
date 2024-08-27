@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "layouts",
     "heros",
     "volunteers",
+    "admins"
 ]
 
 CORS_ALLOWED_ORIGINS = [
