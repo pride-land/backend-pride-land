@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     "corsheaders",
+    "feedbacks",
     "blogs",
     "medias",
     "layouts",
@@ -92,8 +93,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'prideland',
-        'USER': 'briango',
-        'PASSWORD': 'zerogate',
+        'USER': 'postgres',
+        'PASSWORD': 'chickenadobo',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
