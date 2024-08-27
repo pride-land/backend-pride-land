@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+#.env setup
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+DB_USER = os.getenv("DB_USER")
+DB_PASS = os.getenv("DB_PASS")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -93,8 +100,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'prideland',
-        'USER': 'briango',
-        'PASSWORD': 'zerogate',
+        'USER': DB_USER,
+        'PASSWORD': DB_PASS,
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

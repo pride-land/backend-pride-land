@@ -14,6 +14,7 @@ Our Back-End Tech stack: <br>
 ### Setting up Development
 
 Here's a quick guide and run down on how to setup environment and start developing the project.
+Make sure to add a .env file that has DB_USER and DB_PASS
 
 #### Initial Setup:
 
@@ -37,6 +38,7 @@ $ python3 manage.py runserver
 $ pip install djangorestframework
 $ pip install django-cors-headers
 $ pip install psycopg2-binary
+$ pip install python-dotenv
 ```
 
 DATABASES = {
