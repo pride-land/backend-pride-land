@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
-from serializers import VolunteerSerializer
+from .serializers import VolunteerSerializer
 from ..models import Volunteer
 
 class VolunteerViewSet(ModelViewSet):
