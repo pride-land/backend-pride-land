@@ -41,6 +41,7 @@ $ pip install python-dotenv
 $ pip install djangorestframework-simplejwt
 $ pip install Pillow
 ```
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -51,3 +52,4 @@ DATABASES = {
         'PORT': 'your_localport',
     }
 }
+```
