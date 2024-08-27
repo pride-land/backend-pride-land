@@ -1,7 +1,7 @@
-from rest_framework import ModelSerializer
+from rest_framework.serializers import ModelSerializer
 from ..models import Volunteer
 
-class VolunteerSerializer:
+class VolunteerSerializer(ModelSerializer):
     class Meta:
         model = Volunteer
-        fields = ("id", "name", "email", "start_date", "signup_date", "category", "restrictions", "status" )
+        fields = ("__all__")
