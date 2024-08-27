@@ -40,7 +40,7 @@ $ pip install django-cors-headers
 $ pip install psycopg2-binary
 $ pip install python-dotenv
 ```
-
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -51,3 +51,4 @@ DATABASES = {
         'PORT': 'your_localport',
     }
 }
+```
