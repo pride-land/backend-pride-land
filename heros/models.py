@@ -6,3 +6,6 @@ class Hero(models.Model):
     img_url = models.ForeignKey(Media, on_delete= models.SET_NULL, null=True)
     site_desc = models.TextField(null=False)
     logo = models.TextField(null=False)
+
+    def __str__(self):
+        return f"img url: {self.img_url}"
