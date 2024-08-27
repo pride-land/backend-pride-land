@@ -10,7 +10,6 @@ Our Back-End Tech stack: <br>
 • Python
 • Django Rest
 ``` 
-
 ### Setting up Development
 
 Here's a quick guide and run down on how to setup environment and start developing the project.
@@ -40,7 +39,6 @@ $ pip install django-cors-headers
 $ pip install psycopg2-binary
 $ pip install python-dotenv
 ```
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
