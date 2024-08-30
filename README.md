@@ -38,6 +38,8 @@ $ pip install djangorestframework
 $ pip install django-cors-headers
 $ pip install psycopg2-binary
 $ pip install python-dotenv
+$ pip install djangorestframework-simplejwt
+$ pip install Pillow
 ```
 DATABASES = {
     'default': {
