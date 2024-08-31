@@ -8,3 +8,4 @@ urlpatterns = [
     path('api-reg/', include('accounts.api.urls')),
     path('api-pl/', include('pland_auth.api.urls')),
 ]
+
