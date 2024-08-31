@@ -9,4 +9,4 @@ class Layout(models.Model):
 
 
     def __str__(self):
-        return f"card: {self.card_desc}, comment: {self.img_url}, comment: {self.link}"
+        return f"Blog Name: {self.card_desc}, {self.link} "

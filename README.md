@@ -10,7 +10,6 @@ Our Back-End Tech stack: <br>
 • Python
 • Django Rest
 ``` 
-
 ### Setting up Development
 
 Here's a quick guide and run down on how to setup environment and start developing the project.
@@ -39,8 +38,10 @@ $ pip install djangorestframework
 $ pip install django-cors-headers
 $ pip install psycopg2-binary
 $ pip install python-dotenv
+$ pip install djangorestframework-simplejwt
+$ pip install Pillow
 ```
-```
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -50,5 +51,4 @@ DATABASES = {
         'HOST': 'your_localhost',
         'PORT': 'your_localport',
     }
-}
-```
+

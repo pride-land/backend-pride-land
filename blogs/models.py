@@ -8,6 +8,6 @@ class Blog(models.Model):
     img_url = models.ForeignKey(Media, on_delete= models.SET_NULL, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
-
     def __str__(self):
-        return f"name: {self.name}, content: {self.text}, upload_image: {self.img_url}"
+        return f"Blog Name: {self.name}, {self.text}, {self.img_url} "
+
