@@ -10,3 +10,4 @@ class Blog(models.Model):
 
     def __str__(self):
         return f"Blog Name: {self.name}, {self.text}, {self.img_url} "
+
