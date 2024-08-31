@@ -7,5 +7,6 @@ class Layout(models.Model):
     img_url = models.ForeignKey(Media, on_delete= models.SET_NULL, null=True)
     link = models.TextField(null=False)
 
+
     def __str__(self):
         return f"Blog Name: {self.card_desc}, {self.link} "
