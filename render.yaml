@@ -2,7 +2,6 @@ databases:
   - name: pridelanddb
     plan: free
     databaseName: prideland
-    user: DB_USER
 
 services:
   - type: web
