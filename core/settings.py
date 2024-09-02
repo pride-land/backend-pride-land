@@ -14,7 +14,7 @@ from pathlib import Path
 #.env setup
 import os
 # For deployment on render:
-import dj_database_url
+# import dj_database_url
 from dotenv import load_dotenv
 from datetime import timedelta
 load_dotenv()
