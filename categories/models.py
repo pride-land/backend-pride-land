@@ -11,6 +11,6 @@ class Categories(models.Model):
    
 
     def __str__(self):
-         return f"Categories: {self.bamboo}, {self.vegetables}, {self.eggs}, {self.shiitake}, {self.bees}, {self.goats}, {self.construction} "
+        return f"Categories List: {self.id}"
       
 
