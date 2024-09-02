@@ -21,6 +21,7 @@ load_dotenv()
 
 DB_USER = os.getenv("DB_USER")
 DB_PASS = os.getenv("DB_PASS")
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -208,7 +209,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
