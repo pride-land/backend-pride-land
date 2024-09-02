@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     "volunteers",
     "admins",
     "accounts",
-    "categories",
     ]
 
 CORS_ALLOWED_ORIGINS = [
