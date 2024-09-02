@@ -21,6 +21,7 @@ load_dotenv()
 
 DB_USER = os.getenv("DB_USER")
 DB_PASS = os.getenv("DB_PASS")
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,12 +31,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$!aq)+0hcao_bz+7_-6u6m--lcq!!yrgqp-r(7j1l=t2(rh3$5'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False").lower() == "True"
 
-ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", "localhost", "prideland.vercel.app", ".now.sh"]
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -208,7 +209,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
