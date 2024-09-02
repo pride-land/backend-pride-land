@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 #.env setup
 import os
+# For deployment on render:
+import dj_database_url
 from dotenv import load_dotenv
 from datetime import timedelta
 load_dotenv()
