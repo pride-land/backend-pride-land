@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-$!aq)+0hcao_bz+7_-6u6m--lcq!!yrgqp-r(7j1l=t2(rh3$5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", "localhost", "prideland.vercel.app", ".now.sh"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     "volunteers",
     "admins",
     "accounts",
-    ]
+]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
@@ -245,10 +245,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static-build")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
