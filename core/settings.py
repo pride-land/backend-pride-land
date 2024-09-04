@@ -210,7 +210,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+# DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -254,3 +254,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static-build")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "accounts.CustomUser"
+MEDIA_URL = '/medias/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'medias')
