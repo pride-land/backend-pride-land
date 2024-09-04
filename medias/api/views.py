@@ -16,9 +16,10 @@ class MediaViewSet(ModelViewSet):
     queryset = Media.objects.all()
     serializer_class = MediaSerializer
 
-@api_view(['POST'])
+@api_view(['•'])
 def upload_image(request):
     image_data = request.data.get('image')
+    text = request.form.get('text')
     
     if image_data:
         # Decode the Base64 image data
@@ -34,6 +35,16 @@ def upload_image(request):
         # Save to the database
         image = Media(image=img_file)
         image.save()
-        
+
         return Response({'status': 'Image uploaded successfully'}, status=status.HTTP_201_CREATED)
     return Response({'error': 'No image data provided'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def getRoutes(request):
+    routes = [
+        '/api/upload',
+        '/api/upload/images'
+    ]
+
+    return Response(routes)
