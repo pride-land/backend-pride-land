@@ -1,16 +1,5 @@
-from django.db import models
-
-# # Create your models here.
-# class Media(models.Model):
-
-#     imageUrl = models.ImageField(default="default.jpg", upload_to="upload")
-#     date_created = models.DateTimeField(auto_now_add=True, null=True)
-   
-#     def __str__(self):
-#         return f"URL: {self.imageUrl}"
-    
 import base64
-
+from django.db import models
 
 class Media(models.Model):
     ...
@@ -33,3 +22,4 @@ class Media(models.Model):
     def __str__(self):
         return f"URL: {self.image_b64}"
     
+
