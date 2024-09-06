@@ -1,24 +1,32 @@
 import base64
 from django.db import models
 
+# class Media(models.Model):
+#     ...
+    
+#     blob_img = models.BinaryField(default=b"", null=True)
+
+#     def save(self, *args, **kwargs):
+#         if self.blob_img:
+            
+#             img_blob = self.blob_img
+         
+#             print(img_blob)
+#     #         # binaryImg = "".join(["{:08b}".format(x) for x in decodedImg])
+#     #         self.image_b64 = decodedImg
+#     #         print(decodedImg)
+#             super(Media, self).save(*args, **kwargs)
+
+#     def __str__(self):
+#         return f"URL: {self.image_b64}"
+    
 class Media(models.Model):
-    ...
-    imageUrl = models.ImageField(upload_to=None)
-    image_b64 = models.TextField(max_length=None , default='')
+    blob_img = models.BinaryField(default=b"", null=True)
 
     def save(self, *args, **kwargs):
-        if self.imageUrl:
         
-            img_file = self.imageUrl
-            convImage = base64.b64encode(img_file.read())
-         
-            decodedImg = base64.decodebytes(convImage)
-            binaryImg = "".join(["{:08b}".format(x) for x in decodedImg])
-            self.image_b64 = binaryImg
-
-            super(Media, self).save(*args, **kwargs)
+            
+        super(Media, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f"URL: {self.image_b64}"
-    
-
+        return f"Media ID: {self.id}"

@@ -1,16 +1,14 @@
-from django.urls import path, include
+from django.urls import path
 from rest_framework.routers import DefaultRouter
-from django.conf.urls.static import static
 from django.conf import settings
-from .views import MediaViewSet
-from . import views
+from .views import uploadImage, imageData
 from django.conf import settings
-from django.conf.urls.static import static
-
 
 media_router = DefaultRouter()
-media_router.register(r"medias", MediaViewSet)
+# media_router.register(r"medias", MediaViewSet)
 
-# urlpatterns = [
-#     path('api/', include(media_router.urls))
-# ]
+urlpatterns = [
+    # path('medias/', include(media_router.urls)),
+    path(r'upload-img', uploadImage, name="upload_img"),
+    path(r'get-img', imageData, name="get_img")
+]
