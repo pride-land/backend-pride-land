@@ -1,6 +1,5 @@
-from django.db import models
-
 import base64
+from django.db import models
 
 class Media(models.Model):
     ...
@@ -22,3 +21,4 @@ class Media(models.Model):
     def __str__(self):
         return f"URL: {self.image_b64}"
     
+

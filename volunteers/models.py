@@ -15,6 +15,7 @@ class Volunteer(models.Model):
     goats = models.BooleanField(default=False)
     construction = models.BooleanField(default=False)
     restrictions = models.TextField(default=None, blank=True, null=True)
+    is_regular_volunteer = models.BooleanField(default=False)
     is_accepted = models.BooleanField(default=False, help_text='Designates whether this volunteer is accepted. Review then accept', verbose_name='active')
 
     def __str__(self):
