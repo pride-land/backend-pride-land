@@ -18,7 +18,7 @@ def uploadImage(request):
     print("WILLLLLL")
     if request.method == "POST":
         # Access the JSON data
-        img_base64 = request.data.get("image_b64")
+        img_base64 = request.data.get("blob_img")
         if img_base64:
             decodedImg = base64.decodebytes(img_base64.encode('utf-8'))
             blobImg = Media(blob_img=decodedImg)
@@ -41,6 +41,9 @@ def imageData(request):
                              'alt_text' : elt.alt_text,
                              'set_as_hero': elt.set_as_hero,
                              })
+
+                           
+
            
         return JsonResponse(dataList, safe=False, status=200)
 
