@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from .serializer import MediaSerializer
 from rest_framework.decorators import api_view
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 class MediaViewSet(ModelViewSet):
@@ -36,10 +37,23 @@ def imageData(request):
             
             baseBinary = base64.b64encode(elt.blob_img).decode('utf-8')
             dataList.append({ 'id' : elt.id, 
-                             'image_b64' : baseBinary})
+                             'blob_img' : baseBinary,
+                             'alt_text' : elt.alt_text,
+                             'set_as_hero': elt.set_as_hero,
+                             })
+
+                           
+
            
         return JsonResponse(dataList, safe=False, status=200)
 
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
 
+
+@api_view(['DELETE'])
+def deleteImage(request, pk):
+    user = Media.objects.get(id=pk)
+    user.delete()
+    
+    return Response('Item successfully deleted!')
