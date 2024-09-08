@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     "blogs",
     "medias",
     "layouts",
-    "heros",
     "volunteers",
     "admins",
     "accounts",
