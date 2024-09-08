@@ -39,7 +39,7 @@ def imageData(request):
             dataList.append({ 'id' : elt.id, 
                              'blob_img' : baseBinary,
                              'alt_text' : elt.alt_text,
-                             'set_as_hero': elt.set_as_hero,
+                             'set_as_hero': elt.set_as_hero
                              })
 
                            
