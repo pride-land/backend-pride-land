@@ -12,4 +12,4 @@ class Media(models.Model):
         super(Media, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f"Media ID: {self.blob_img}"
+        return f"Media ID: {self.id} {self.alt_text} {self.blob_img}"
