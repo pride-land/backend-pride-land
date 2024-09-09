@@ -26,7 +26,6 @@ def uploadImage(request):
             return JsonResponse({"message": "Image saved successfully"}, status=status.HTTP_201_CREATED)
         return JsonResponse({"error": "No image provided"}, status=status.HTTP_400_BAD_REQUEST)
 
-
 @api_view(['GET'])
 def imageData(request):
     try:
@@ -37,19 +36,15 @@ def imageData(request):
             
             baseBinary = base64.b64encode(elt.blob_img).decode('utf-8')
             dataList.append({ 'id' : elt.id, 
-                             'blob_img' : baseBinary,
-                             'alt_text' : elt.alt_text,
                              'set_as_hero': elt.set_as_hero,
+                             'alt_text' : elt.alt_text,
+                             'blob_img' : baseBinary
                              })
 
-                           
-
-           
         return JsonResponse(dataList, safe=False, status=200)
 
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
-
 
 @api_view(['DELETE'])
 def deleteImage(request, pk):
