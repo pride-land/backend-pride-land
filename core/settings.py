@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     "blogs",
     "medias",
     "layouts",
-    "heros",
     "volunteers",
     "admins",
     "accounts",
@@ -210,7 +209,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+# DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -254,3 +253,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static-build")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT= os.path.join(BASE_DIR, '/media/')
+DATA_UPLOAD_MAX_MEMORY_SIZE = 7242880
