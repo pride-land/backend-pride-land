@@ -1,4 +1,3 @@
-import base64
 from django.db import models
 
 class Media(models.Model):
@@ -8,7 +7,6 @@ class Media(models.Model):
 
     def save(self, *args, **kwargs):
         
-            
         super(Media, self).save(*args, **kwargs)
 
     def __str__(self):
