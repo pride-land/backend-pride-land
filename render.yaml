@@ -8,8 +8,8 @@ services:
     plan: free
     name: prideland
     runtime: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python -m gunicorn core.asgi:application"
+    buildCommand: "./build_files.sh"
+    startCommand: "python -m gunicorn core.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
