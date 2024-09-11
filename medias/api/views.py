@@ -45,6 +45,24 @@ def imageData(request):
 
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
+    
+def getHeroes(request):
+    try:
+        images = Media.objects.all()
+        heroes = []
+
+        for image in images:
+            if image.set_as_hero:
+                baseBinary = base64.b64encode(image.blob_img).decode('utf-8')
+                heroes.append({ 'id' : image.id, 
+                                'set_as_hero': image.set_as_hero,
+                                'alt_text' : image.alt_text,
+                                'blob_img' : baseBinary
+                                })
+
+        return JsonResponse(heroes, safe=False, status=200)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
 
 @api_view(['DELETE'])
 def deleteImage(request, pk):
