@@ -6,9 +6,11 @@ from blogs.api.urls import blog_router
 from feedbacks.api.urls import feedback_router
 from medias.api.urls import media_router
 from volunteers.api.urls import volunteer_router
+from accounts.api.urls import staff_router
 
 router = DefaultRouter()
 
+router.registry.extend(staff_router.registry)
 router.registry.extend(admin_router.registry)
 router.registry.extend(blog_router.registry)
 router.registry.extend(feedback_router.registry)
