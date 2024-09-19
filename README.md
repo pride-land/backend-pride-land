@@ -13,8 +13,7 @@ Some reasons you might want to use REST framework:
 * [Authentication policies][authentication] including optional packages for [OAuth1a][oauth1-section] and [OAuth2][oauth2-section].
 * [Serialization][serializers] that supports both [ORM][modelserializer-section] and [non-ORM][serializer-section] data sources.
 * Customizable all the way down - just use [regular function-based views][functionview-section] if you don't need the [more][generic-views] [powerful][viewsets] [features][routers].
-* [Extensive documentation][docs], and [great community support][group].
-
+* [Extensive documentation][docs].
 ## Requirements
 
 * Python 3.8+
@@ -61,7 +60,76 @@ $ pip install djangorestframework-simplejwt
 $ pip install Pillow
 ```
 
-Utilized Postgresql as database.
+## Example 
+
+Let's take a look at a quick example of using REST framework to build a simple model-backed API for accessing users and groups.
+
+Startup up a new project like so...
+
+    pip install django
+    pip install djangorestframework
+    django-admin startproject example .
+    ./manage.py migrate
+    ./manage.py createsuperuser
+
+
+Now edit the `example/urls.py` module in your project:
+
+```python
+from django.contrib.auth.models import User
+from django.urls import include, path
+from rest_framework import routers, serializers, viewsets
+
+
+# Serializers define the API representation.
+class UserSerializer(serializers.ExampleModelSerializer):
+    class Meta:
+        model = User
+        fields = ['url', 'username', 'email', 'is_staff'] or fields = '__all__'
+
+
+# ViewSets define the view behavior.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+# Routers provide a way of automatically determining the URL configuration.
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+
+# Link your API using automatic URL routing.
+# Additionally, we include login URLs for the browsable API.
+urlpatterns = [
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+]
+```
+
+We'd also like to configure a couple of settings for our API.
+
+Add the following to your `settings.py` module:
+
+```python
+INSTALLED_APPS = [
+    ...  # Make sure to include the default installed apps here.
+    'rest_framework',
+]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ]
+}
+```
+
+We're almost done, now run the this
+
+    python manage.py runserver
+
+### Utilized Postgresql as database.
 
 ```shell
 DATABASES = {
@@ -75,7 +143,7 @@ DATABASES = {
     }
 ```
 
-for .env file settings:
+### for .env file settings:
 
 ```shell
 DB_USER = "DB_USER"
@@ -85,7 +153,6 @@ ALLOWED_HOSTS = ['*']
 SECRET_KEY = "SECRET_KEY"
 ```
 
-[group]: https://groups.google.com/forum/?fromgroups#!forum/django-rest-framework
 [oauth1-section]: https://www.django-rest-framework.org/api-guide/authentication/#django-rest-framework-oauth
 [oauth2-section]: https://www.django-rest-framework.org/api-guide/authentication/#django-oauth-toolkit
 [serializer-section]: https://www.django-rest-framework.org/api-guide/serializers/#serializers
