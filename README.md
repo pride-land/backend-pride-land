@@ -1,7 +1,7 @@
 # Pride-Land &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709?style=for-the-badge&logo=django&logoColor=white&color=ff1709&labelColor=gray)  ![Static Badge](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens) ![Static Badge](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white) ![Gunicorn](https://img.shields.io/badge/gunicorn-%298729.svg?style=for-the-badge&logo=gunicorn&logoColor=white) ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
-## introduction 
-Prideland a Non-profit Organization with a mission to create a society in which everyone, regardless of whether they are able-bodied or disabled, can work freely as they are by respecting their different physical, intellectual, and mental conditions and by giving appropriate consideration to each other.
+## Introduction 
+Prideland a non-profit organization with a mission to create a society in which everyone, regardless of whether they are able-bodied or disabled, can work freely as they are by respecting their different physical, intellectual, and mental conditions and by giving appropriate consideration to each other.
 
 ## Overview
 Django REST framework is a powerful and flexible toolkit for building Web APIs.
@@ -15,8 +15,7 @@ Some reasons you might want to use REST framework:
 * Customizable all the way down - just use [regular function-based views][functionview-section] if you don't need the [more][generic-views] [powerful][viewsets] [features][routers].
 * [Extensive documentation][docs], and [great community support][group].
 
-##
-# Requirements
+## Requirements
 
 * Python 3.8+
 * Django 5.0, 5.1+
@@ -85,3 +84,17 @@ DATABASE_URL = "DB_URL"
 ALLOWED_HOSTS = ['*']
 SECRET_KEY = "SECRET_KEY"
 ```
+
+[group]: https://groups.google.com/forum/?fromgroups#!forum/django-rest-framework
+[oauth1-section]: https://www.django-rest-framework.org/api-guide/authentication/#django-rest-framework-oauth
+[oauth2-section]: https://www.django-rest-framework.org/api-guide/authentication/#django-oauth-toolkit
+[serializer-section]: https://www.django-rest-framework.org/api-guide/serializers/#serializers
+[modelserializer-section]: https://www.django-rest-framework.org/api-guide/serializers/#modelserializer
+[functionview-section]: https://www.django-rest-framework.org/api-guide/views/#function-based-views
+[generic-views]: https://www.django-rest-framework.org/api-guide/generic-views/
+[viewsets]: https://www.django-rest-framework.org/api-guide/viewsets/
+[routers]: https://www.django-rest-framework.org/api-guide/routers/
+[serializers]: https://www.django-rest-framework.org/api-guide/serializers/
+[authentication]: https://www.django-rest-framework.org/api-guide/authentication/
+[image]: https://www.django-rest-framework.org/img/quickstart.png
+[docs]: https://www.django-rest-framework.org/
