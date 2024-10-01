@@ -16,18 +16,10 @@ Some reasons you might want to use REST framework:
 * [Extensive documentation][docs].
 ## Requirements
 
+You should have the following for this setup: 
 * Python 3.8+
 * Django 5.0, 5.1+
 
-
-## Installing / Getting started
-
-Install: <br>
-
-```shell
-• Python
-• Django Rest
-``` 
 ### Setting up Development
 
 Here's a quick guide and run down on how to setup environment and start developing the project.
@@ -73,39 +65,6 @@ Startup up a new project like so...
     ./manage.py createsuperuser
 
 
-Now edit the `example/urls.py` module in your project:
-
-```python
-from django.contrib.auth.models import User
-from django.urls import include, path
-from rest_framework import routers, serializers, viewsets
-
-
-# Serializers define the API representation.
-class UserSerializer(serializers.ExampleModelSerializer):
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'is_staff'] or fields = '__all__'
-
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-# Routers provide a way of automatically determining the URL configuration.
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-
-# Link your API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
-urlpatterns = [
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-]
-```
-
 We'd also like to configure a couple of settings for our API.
 
 Add the following to your `settings.py` module:
@@ -125,11 +84,7 @@ REST_FRAMEWORK = {
 }
 ```
 
-We're almost done, now run the this
-
-    python manage.py runserver
-
-### Utilized Postgresql as database.
+### Postgresql as database.
 
 ```shell
 DATABASES = {
