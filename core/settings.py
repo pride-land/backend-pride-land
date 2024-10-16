@@ -17,7 +17,7 @@ import os
 import dj_database_url
 from dotenv import load_dotenv
 from datetime import timedelta
-load_dotenv()
+load_dotenv(override=True)
 
 DB_USER = os.getenv("DB_USER")
 DB_PASS = os.getenv("DB_PASS")
@@ -197,15 +197,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'prideland',
         'USER': DB_USER,
         'PASSWORD': DB_PASS,
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'PORT': '3306',
     }
 }
 
