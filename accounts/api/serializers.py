@@ -33,7 +33,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             return CustomUser.objects.create_user(password=password, **validate_data)
     
 class UserLoginSerializer(serializers.Serializer):
-    username = serializers.CharField()
+    username = serializers.CharField(max_length=200)
     password = serializers.CharField(write_only=True)
 
 

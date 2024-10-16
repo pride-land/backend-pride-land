@@ -200,12 +200,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'prideland',
-        'USER': DB_USER,
-        'PASSWORD': DB_PASS,
+        'USER': 'root',
+        'PASSWORD': 'Kimicakes19k!#%',
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
     }
 }
 
@@ -257,3 +261,4 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT= os.path.join(BASE_DIR, '/media/')
 DATA_UPLOAD_MAX_MEMORY_SIZE = 7242880
+SILENCED_SYSTEM_CHECKS = ['mysql.E001']
