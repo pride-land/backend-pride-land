@@ -256,4 +256,3 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT= os.path.join(BASE_DIR, '/media/')
 DATA_UPLOAD_MAX_MEMORY_SIZE = 7242880
-SILENCED_SYSTEM_CHECKS = ['mysql.E001']
