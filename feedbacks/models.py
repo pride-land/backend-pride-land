@@ -4,7 +4,7 @@ from django.db import models
 class Feedback(models.Model):
 
     name = models.CharField(max_length=200, null=True)
-    comment = models.TextField(null=False)
+    comment = models.TextField(null=False, default="comment")
     is_accepted = models.BooleanField(default=False, help_text='Designates whether this feedback is displayed in index', verbose_name='active')
     permission_to_display = models.BooleanField(default=False)
 

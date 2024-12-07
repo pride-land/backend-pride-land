@@ -3,8 +3,8 @@ import django.utils.timezone
 
 # Create your models here.
 class Volunteer(models.Model):
-    name = models.CharField(max_length=200,null=False)
-    email = models.EmailField(null=False)
+    name = models.CharField(max_length=200,null=False,default="name not provided")
+    email = models.EmailField(null=False, default="email not provided")
     start_date = models.DateTimeField()
     signup_date = models.DateTimeField(default=django.utils.timezone.now, verbose_name='sign up date')
     bamboo = models.BooleanField(default=False)

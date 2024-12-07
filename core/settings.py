@@ -15,12 +15,25 @@ from pathlib import Path
 import os
 # For deployment on render:
 import dj_database_url
+
+# For deployment with Xserver:
+import pymysql
+pymysql.install_as_MySQLdb()
+
+from django.db.backends.mysql.features import DatabaseFeatures
+# Temporarily lower the minimum MySQL version requirement
+DatabaseFeatures.minimum_database_version = (5, 7, 0)
+
+
 from dotenv import load_dotenv
 from datetime import timedelta
 load_dotenv(override=True)
 
 DB_USER = os.getenv("DB_USER")
-DB_PASS = os.getenv("DB_PASS")
+DB_PASS = os.getenv("DB_PASSWORD")
+DB_NAME = os.getenv("DB_NAME")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT", "3306")
 DATABASE_URL = os.getenv('DATABASE_URL')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,7 +47,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = "false"
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -193,20 +206,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'prideland',
-        'USER': DB_USER,
-        'PASSWORD': DB_PASS,
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'NAME': DB_NAME,            
+        'USER': DB_USER,            
+        'PASSWORD': DB_PASS,   
+        'HOST': DB_HOST,   
+        'PORT': DB_PORT,
+        'OPTIONS': {
+            'sql_mode': 'STRICT_TRANS_TABLES',
+            'charset': 'utf8mb4',  
+        },                      
     }
 }
+
+
+
+
 
 # DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
 
@@ -244,8 +264,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static-build")
+STATIC_ROOT = '/home/xs374324/pridefarm.org/public_html/static'
+STATIC_URL = '/static/'
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
